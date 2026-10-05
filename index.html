@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Henna Splash & Art Studio</title>
+<meta name="description" content="Bangalore's premier team of professional female bridal mehndi artists. Home-made, 100% organic, chemical-free henna. Check your wedding date availability.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          burgundy: { DEFAULT: '#580A14', deep: '#3A060D', soft: '#7A1626' },
+          royal: '#7209B7',
+          gold: { DEFAULT: '#D4AF37', light: '#E6CA65', deep: '#A9871F' },
+          ivory: { DEFAULT: '#FFFDF9', velvet: '#FBF7EE', line: '#EADFC6' },
+          charcoal: '#1F191A'
+        },
+        fontFamily: {
+          cinzel: ['Cinzel', 'Georgia', 'serif'],
+          playfair: ['"Playfair Display"', 'Georgia', 'serif'],
+          jakarta: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+        }
+      }
+    }
+  };
+</script>
+<style>
+  /* Layout: ivory bridal invitation. A burgundy-and-gold hero with a rotating henna mandala,
+     ivory pillars and price cards, a dark burgundy spotlight for the signature portrait offer. */
+  :root {
+    --burgundy: #580A14;
+    --burgundy-deep: #3A060D;
+    --royal: #7209B7;
+    --gold: #D4AF37;
+    --gold-light: #E6CA65;
+    --ivory: #FFFDF9;
+    --velvet: #FBF7EE;
+    --charcoal: #1F191A;
+    --muted: #6B5B5D;
+    --wa: #25D366;
+    --bar-h: 72px;
+    color-scheme: light;
+  }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--ivory); color: var(--charcoal);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif; line-height: 1.6;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom, 0px));
+  }
+  @media (min-width: 768px) { body { padding-bottom: 0; } }
+  h1, h2, h3 { text-wrap: balance; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  section[id] { scroll-margin-top: 76px; }
+
+  .gold-text {
+    background: linear-gradient(100deg, #A9871F 0%, #D4AF37 25%, #F6E7A6 45%, #D4AF37 60%, #A9871F 100%);
+    background-size: 220% auto; -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent; animation: shimmerText 7s linear infinite;
+  }
+  @keyframes shimmerText { to { background-position: -220% 50%; } }
+
+  /* buttons */
+  .btn {
+    position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+    min-height: 52px; padding: .8rem 1.6rem; border-radius: 999px; border: 1px solid transparent;
+    font-weight: 700; font-size: .95rem; letter-spacing: .02em; cursor: pointer; text-decoration: none;
+    transition: transform .2s ease, box-shadow .3s ease, background-color .3s ease, border-color .3s ease;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  }
+  .btn:active { transform: scale(.98); }
+  .btn svg { width: 20px; height: 20px; flex: none; }
+  .btn-gold {
+    background: linear-gradient(135deg, #F2DC85, var(--gold) 50%, #A9871F); color: var(--burgundy-deep);
+    animation: goldGlow 3s ease-in-out infinite;
+  }
+  .btn-gold::after {
+    content: ""; position: absolute; top: -30%; bottom: -30%; left: -60%; width: 40%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,.75), transparent);
+    transform: skewX(-20deg); animation: sweep 3.8s ease-in-out infinite;
+  }
+  @keyframes goldGlow {
+    0%, 100% { box-shadow: 0 0 0 1px rgba(212,175,55,.5), 0 6px 22px rgba(212,175,55,.35); }
+    50% { box-shadow: 0 0 0 1px rgba(230,202,101,.9), 0 6px 34px rgba(212,175,55,.7); }
+  }
+  @keyframes sweep { 0% { left: -60%; } 55%, 100% { left: 130%; } }
+  .btn-outline { border-color: rgba(230,202,101,.7); color: var(--gold-light); background: rgba(255,255,255,.04); }
+  .btn-outline-dark { border-color: var(--burgundy); color: var(--burgundy); background: transparent; }
+  .btn-wa { background: var(--wa); color: #05301a; }
+  @media (hover: hover) {
+    .btn-outline:hover { background: rgba(230,202,101,.14); border-color: var(--gold-light); }
+    .btn-outline-dark:hover { background: var(--burgundy); color: var(--ivory); }
+    .btn-wa:hover { box-shadow: 0 8px 24px rgba(37,211,102,.4); }
+  }
+  .pulse-wa { animation: pulseWa 2.4s ease-out infinite; }
+  @keyframes pulseWa {
+    0% { box-shadow: 0 0 0 0 rgba(37,211,102,.55); }
+    70%, 100% { box-shadow: 0 0 0 16px rgba(37,211,102,0); }
+  }
+
+  /* glass + gold border */
+  .glass {
+    background: rgba(255,253,249,.08); border: 1px solid rgba(230,202,101,.35);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  }
+  .gold-frame {
+    position: relative; background: var(--ivory); border-radius: 1.25rem;
+    box-shadow: 0 10px 30px rgba(88,10,20,.08);
+  }
+  .gold-frame::before {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+    background: linear-gradient(145deg, #E6CA65, rgba(212,175,55,.25) 40%, #D4AF37 70%, rgba(114,9,183,.35));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  }
+  .lift { transition: transform .35s ease, box-shadow .35s ease; }
+  @media (hover: hover) {
+    .lift:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(88,10,20,.16), 0 0 28px rgba(212,175,55,.22); }
+    .lift:hover .icon-ring { transform: rotate(-6deg) scale(1.06); background: var(--burgundy); color: var(--gold-light); }
+  }
+  .icon-ring {
+    display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%;
+    border: 1px solid rgba(212,175,55,.6); color: var(--burgundy);
+    background: radial-gradient(circle at 30% 25%, #fff, var(--velvet));
+    transition: transform .35s ease, background-color .35s ease, color .35s ease;
+  }
+  .icon-ring svg { width: 26px; height: 26px; }
+
+  /* hero */
+  .hero-bg {
+    background:
+      radial-gradient(60% 50% at 82% 8%, rgba(114,9,183,.35), transparent 70%),
+      radial-gradient(70% 60% at 10% 100%, rgba(212,175,55,.16), transparent 70%),
+      linear-gradient(160deg, #6A0F1D 0%, #580A14 45%, #2E050B 100%);
+  }
+  .mandala { position: absolute; pointer-events: none; opacity: .22; animation: spin 140s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .float-card { animation: floaty 6s ease-in-out infinite; }
+  .float-card:nth-child(2) { animation-delay: -2s; }
+  .float-card:nth-child(3) { animation-delay: -4s; }
+  @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+  /* ornament divider */
+  .orn { display: flex; align-items: center; justify-content: center; gap: .8rem; color: var(--gold); }
+  .orn::before, .orn::after { content: ""; height: 1px; width: 64px; background: linear-gradient(90deg, transparent, var(--gold)); }
+  .orn::after { transform: scaleX(-1); }
+  .orn i { width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); display: block; }
+
+  /* reveal on scroll */
+  .js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
+  .js .reveal.in { opacity: 1; transform: none; }
+
+  /* process connectors */
+  .step-line { position: absolute; top: 28px; left: calc(50% + 36px); right: calc(-50% + 36px); height: 1px; border-top: 1px dashed rgba(230,202,101,.6); }
+  @media (max-width: 767px) { .step-line { display: none; } }
+
+  /* modal */
+  .modal { position: fixed; inset: 0; z-index: 100; display: flex; align-items: flex-end; justify-content: center; background: rgba(31,10,14,.72); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); animation: fadeIn .25s ease; }
+  @media (min-width: 640px) { .modal { align-items: center; padding: 16px; } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .sheet { width: 100%; max-width: 520px; max-height: calc(100% - 12px); overflow-y: auto; overscroll-behavior: contain; border-radius: 1.5rem 1.5rem 0 0; background: var(--ivory); animation: rise .35s cubic-bezier(.2,.8,.2,1); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  @media (min-width: 640px) { .sheet { border-radius: 1.5rem; } }
+  @keyframes rise { from { transform: translateY(40px); opacity: .5; } to { transform: none; opacity: 1; } }
+  .field label { display: block; margin-bottom: .3rem; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--burgundy); }
+  .field input, .field select {
+    width: 100%; min-height: 50px; padding: .65rem .9rem; border-radius: .8rem; border: 1px solid #DCCDA8;
+    background: #fff; color: var(--charcoal); font: inherit; font-size: 16px;
+  }
+  .field input:focus, .field select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,175,55,.3); }
+  .field .err { display: none; margin-top: .25rem; font-size: .78rem; color: #B3261E; }
+  .field.bad .err { display: block; }
+  .field.bad input, .field.bad select { border-color: #B3261E; }
+
+  /* mobile bar */
+  .mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.25fr; gap: 10px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(46,5,11,.96); border-top: 1px solid rgba(230,202,101,.5); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+  .mbar .btn { min-height: 48px; padding: .5rem .8rem; font-size: .85rem; line-height: 1.15; flex-direction: column; gap: .15rem; }
+  .mbar .btn small { font-weight: 600; font-size: .7rem; opacity: .85; }
+  @media (min-width: 768px) { .mbar { display: none; } }
+  .fab { position: fixed; right: 20px; bottom: 24px; z-index: 60; display: none; width: 60px; height: 60px; border-radius: 50%; place-items: center; background: var(--wa); color: #fff; }
+  .fab svg { width: 28px; height: 28px; }
+  @media (min-width: 768px) { .fab { display: grid; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    .js .reveal { opacity: 1; transform: none; }
+  }
+</style>
+
+</head>
+<body>
+<!-- ============ HEADER ============ -->
+<header class="sticky top-0 z-50 border-b border-gold/30" style="background:rgba(46,5,11,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding-top:env(safe-area-inset-top,0px)">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
+    <a href="#top" class="flex items-center gap-3 no-underline" aria-label="Henna Splash & Art Studio, home">
+      <span class="grid h-10 w-10 place-items-center rounded-full border border-gold/70 font-cinzel text-lg font-bold text-gold-light">H</span>
+      <span class="leading-tight">
+        <span class="block font-cinzel text-[15px] font-semibold tracking-[.12em] text-gold-light">HENNA SPLASH</span>
+        <span class="block text-[10px] font-semibold uppercase tracking-[.28em] text-ivory/70">&amp; Art Studio</span>
+      </span>
+    </a>
+    <nav class="hidden items-center gap-7 text-sm font-medium text-ivory/85 md:flex" aria-label="Primary">
+      <a href="#why" class="hover:text-gold-light">Why Us</a>
+      <a href="#packages" class="hover:text-gold-light">Packages</a>
+      <a href="#signature" class="hover:text-gold-light">Portrait Mehndi</a>
+      <a href="#contact" class="hover:text-gold-light">Contact</a>
+    </nav>
+    <button type="button" class="btn btn-gold !min-h-[44px] !px-4 !text-[13px] md:!px-6 md:!text-sm" data-open-modal>
+      <i data-lucide="calendar-check"></i><span>Check Date</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+<!-- ============ HERO ============ -->
+<section class="hero-bg relative isolate overflow-hidden text-ivory">
+  <svg class="mandala" id="mandalaA" style="width:min(780px,140vw);height:min(780px,140vw);right:-30%;top:-18%" viewBox="-200 -200 400 400" aria-hidden="true"></svg>
+  <svg class="mandala" id="mandalaB" style="width:420px;height:420px;left:-190px;bottom:-190px;animation-direction:reverse;opacity:.16" viewBox="-200 -200 400 400" aria-hidden="true"></svg>
+
+  <div class="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-14 md:py-24 lg:grid-cols-[1.15fr_.85fr]">
+    <div class="reveal">
+      <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-gold/50 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[.2em] text-gold-light">
+        <i data-lucide="crown" class="h-3.5 w-3.5"></i> Bridal Mehndi Studio · Bangalore
+      </p>
+      <h1 class="font-playfair text-[2.6rem] font-semibold leading-[1.08] sm:text-6xl lg:text-[4.4rem]">
+        Every Detail, <span class="gold-text italic">Perfected</span> for Your Big Day.
+      </h1>
+      <p class="mt-6 max-w-xl text-lg text-ivory/80">Bangalore's Premier Team of Professional Female Artists.</p>
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+        <button type="button" class="btn btn-gold" data-open-modal><i data-lucide="calendar-check"></i><span>Check Date Availability</span></button>
+        <a href="#packages" class="btn btn-outline"><i data-lucide="book-open"></i><span>View Design Catalog</span></a>
+      </div>
+      <ul class="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ivory/75">
+        <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-gold-light"></i>Home-made mehndi</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-gold-light"></i>100% organic henna</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-gold-light"></i>Free aftercare</li>
+      </ul>
+    </div>
+
+    <!-- floating glass cards -->
+    <div class="reveal relative mx-auto grid w-full max-w-sm gap-4" style="--d:.15s">
+      <div class="float-card glass rounded-2xl p-5 sm:translate-x-6">
+        <p class="text-[11px] font-semibold uppercase tracking-[.2em] text-gold-light">Bridal packages from</p>
+        <p class="mt-1 font-cinzel text-4xl font-bold text-ivory">₹6,999</p>
+        <p class="text-sm text-ivory/70">Hands front &amp; back + legs</p>
+      </div>
+      <div class="float-card glass rounded-2xl p-5 sm:-translate-x-4">
+        <p class="text-[11px] font-semibold uppercase tracking-[.2em] text-gold-light">Signature</p>
+        <p class="mt-1 font-playfair text-2xl font-semibold italic text-ivory">Portrait Mehndi</p>
+        <p class="text-sm text-ivory/70">Your love story, drawn by hand</p>
+      </div>
+      <div class="float-card glass rounded-2xl p-5 sm:translate-x-3">
+        <p class="text-[11px] font-semibold uppercase tracking-[.2em] text-gold-light">Dates fill early</p>
+        <p class="mt-1 text-sm text-ivory/85">Share your wedding date and we confirm artist availability on WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+  <div class="h-3" style="background:radial-gradient(circle at 50% 0,transparent 5.5px,#D4AF37 6px,#D4AF37 7px,transparent 7.6px) 0 0/16px 12px repeat-x;opacity:.7;height:12px"></div>
+</section>
+
+<!-- ============ PILLARS ============ -->
+<section id="why" class="bg-ivory">
+  <div class="mx-auto max-w-6xl px-4 py-20">
+    <div class="reveal text-center">
+      <p class="text-xs font-bold uppercase tracking-[.3em] text-gold-deep">Why brides choose us</p>
+      <h2 class="mt-3 font-playfair text-4xl font-semibold text-burgundy md:text-5xl">Four promises on every booking</h2>
+      <div class="orn mt-6"><i></i></div>
+    </div>
+    <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <article class="reveal gold-frame lift p-7" style="--d:0s">
+        <span class="icon-ring"><i data-lucide="home"></i></span>
+        <h3 class="mt-5 font-cinzel text-lg font-bold text-burgundy">Home-made Mehndi</h3>
+        <p class="mt-2 text-[15px] text-[color:var(--muted)]">Freshly prepared in-house for every booking.</p>
+      </article>
+      <article class="reveal gold-frame lift p-7" style="--d:.08s">
+        <span class="icon-ring"><i data-lucide="leaf"></i></span>
+        <h3 class="mt-5 font-cinzel text-lg font-bold text-burgundy">100% Organic Henna</h3>
+        <p class="mt-2 text-[15px] text-[color:var(--muted)]">Pure, natural powder for a deep, even stain.</p>
+      </article>
+      <article class="reveal gold-frame lift p-7" style="--d:.16s">
+        <span class="icon-ring"><i data-lucide="shield-check"></i></span>
+        <h3 class="mt-5 font-cinzel text-lg font-bold text-burgundy">Chemical Free</h3>
+        <p class="mt-2 text-[15px] text-[color:var(--muted)]">Safe and gentle on skin, with no harsh additives.</p>
+      </article>
+      <article class="reveal gold-frame lift p-7" style="--d:.24s">
+        <span class="icon-ring"><i data-lucide="gift"></i></span>
+        <h3 class="mt-5 font-cinzel text-lg font-bold text-burgundy">Aftercare Products</h3>
+        <p class="mt-2 text-[15px] text-[color:var(--muted)]">Provided free to ensure maximum stain longevity.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PACKAGES ============ -->
+<section id="packages" class="bg-ivory-velvet" style="background:var(--velvet)">
+  <div class="mx-auto max-w-6xl px-4 py-20">
+    <div class="reveal text-center">
+      <p class="text-xs font-bold uppercase tracking-[.3em] text-gold-deep">Packages &amp; pricing</p>
+      <h2 class="mt-3 font-playfair text-4xl font-semibold text-burgundy md:text-5xl">Bridal Mehndi Packages</h2>
+      <p class="mx-auto mt-4 max-w-xl text-[color:var(--muted)]">Every bridal package includes hands front &amp; back and legs.</p>
+      <div class="orn mt-6"><i></i></div>
+    </div>
+
+    <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="reveal gold-frame lift flex flex-col p-7" style="--d:0s">
+        <span class="w-fit rounded-full bg-gradient-to-r from-gold-light to-gold px-3 py-1 text-[11px] font-bold uppercase tracking-[.14em] text-burgundy-deep">Classic</span>
+        <h3 class="mt-4 font-cinzel text-xl font-bold text-burgundy">Bridal Mehndi</h3>
+        <p class="mt-1 text-sm text-[color:var(--muted)]">Timeless traditional bridal design.</p>
+        <p class="mt-5 font-playfair text-4xl font-semibold text-burgundy">₹6,999</p>
+        <p class="mt-1 text-xs font-semibold uppercase tracking-[.12em] text-gold-deep">Hands front &amp; back + legs</p>
+        <button type="button" class="btn btn-outline-dark mt-6 !min-h-[46px]" data-open-modal data-pkg="Bridal Mehndi (₹6,999)">Select Package</button>
+      </article>
+      <article class="reveal gold-frame lift flex flex-col p-7" style="--d:.07s">
+        <span class="w-fit rounded-full bg-gradient-to-r from-gold-light to-gold px-3 py-1 text-[11px] font-bold uppercase tracking-[.14em] text-burgundy-deep">Floral</span>
+        <h3 class="mt-4 font-cinzel text-xl font-bold text-burgundy">Floral Bridal</h3>
+        <p class="mt-1 text-sm text-[color:var(--muted)]">Delicate florals and fine jaali work.</p>
+        <p class="mt-5 font-playfair text-4xl font-semibold text-burgundy">₹9,999</p>
+        <p class="mt-1 text-xs font-semibold uppercase tracking-[.12em] text-gold-deep">Hands front &amp; back + legs</p>
+        <button type="button" class="btn btn-outline-dark mt-6 !min-h-[46px]" data-open-modal data-pkg="Floral Bridal (₹9,999)">Select Package</button>
+      </article>
+      <article class="reveal gold-frame lift flex flex-col p-7" style="--d:.14s">
+        <span class="w-fit rounded-full bg-gradient-to-r from-gold-light to-gold px-3 py-1 text-[11px] font-bold uppercase tracking-[.14em] text-burgundy-deep">Custom</span>
+        <h3 class="mt-4 font-cinzel text-xl font-bold text-burgundy">Customized Bridal</h3>
+        <p class="mt-1 text-sm text-[color:var(--muted)]">Designed around your outfit and your story.</p>
+        <p class="mt-5 font-playfair text-4xl font-semibold text-burgundy">₹11,999</p>
+        <p class="mt-1 text-xs font-semibold uppercase tracking-[.12em] text-gold-deep">Hands front &amp; back + legs</p>
+        <button type="button" class="btn btn-outline-dark mt-6 !min-h-[46px]" data-open-modal data-pkg="Customized Bridal (₹11,999)">Select Package</button>
+      </article>
+      <article class="reveal gold-frame lift flex flex-col p-7" style="--d:.05s">
+        <span class="w-fit rounded-full bg-gradient-to-r from-gold-light to-gold px-3 py-1 text-[11px] font-bold uppercase tracking-[.14em] text-burgundy-deep">Premium</span>
+        <h3 class="mt-4 font-cinzel text-xl font-bold text-burgundy">Premium Intricate</h3>
+        <p class="mt-1 text-sm text-[color:var(--muted)]">Dense, fine-line detailing from fingertip to wrist.</p>
+        <p class="mt-5 font-playfair text-4xl font-semibold text-burgundy">₹14,999</p>
+        <p class="mt-1 text-xs font-semibold uppercase tracking-[.12em] text-gold-deep">Hands front &amp; back + legs</p>
+        <button type="button" class="btn btn-outline-dark mt-6 !min-h-[46px]" data-open-modal data-pkg="Premium Intricate (₹14,999)">Select Package</button>
+      </article>
+      <article class="reveal gold-frame lift flex flex-col p-7" style="--d:.12s">
+        <span class="w-fit rounded-full bg-gradient-to-r from-royal to-burgundy px-3 py-1 text-[11px] font-bold uppercase tracking-[.14em] text-gold-light">Signature</span>
+        <h3 class="mt-4 font-cinzel text-xl font-bold text-burgundy">Portrait Mehndi</h3>
+        <p class="mt-1 text-sm text-[color:var(--muted)]">Bride &amp; groom portrait drawn in henna.</p>
+        <p class="mt-5 font-playfair text-4xl font-semibold text-burgundy">₹16,999</p>
+        <p class="mt-1 text-xs font-semibold uppercase tracking-[.12em] text-gold-deep">Hands front &amp; back + legs</p>
+        <button type="button" class="btn btn-outline-dark mt-6 !min-h-[46px]" data-open-modal data-pkg="Portrait Mehndi (₹16,999)">Select Package</button>
+      </article>
+      <article class="reveal flex flex-col rounded-[1.25rem] p-7 text-ivory" style="--d:.19s;background:linear-gradient(150deg,#6A0F1D,#3A060D);box-shadow:0 10px 30px rgba(88,10,20,.25)">
+        <span class="w-fit rounded-full border border-gold/70 px-3 py-1 text-[11px] font-bold uppercase tracking-[.14em] text-gold-light">Side Members</span>
+        <h3 class="mt-4 font-cinzel text-xl font-bold text-gold-light">Guests &amp; Bridesmaids</h3>
+        <p class="mt-1 text-sm text-ivory/70">Matching mehndi for the family and friends around you.</p>
+        <p class="mt-5 font-playfair text-3xl font-semibold">₹499 – ₹1,499</p>
+        <p class="mt-1 text-xs font-semibold uppercase tracking-[.12em] text-gold-light">Per person</p>
+        <button type="button" class="btn btn-gold mt-6 !min-h-[46px]" data-open-modal data-pkg="Side Members (₹499 – ₹1,499 per person)">Select Package</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNATURE ============ -->
+<section id="signature" class="relative isolate overflow-hidden bg-burgundy-deep text-ivory" style="background:radial-gradient(70% 80% at 85% 20%,rgba(114,9,183,.35),transparent 70%),linear-gradient(160deg,#580A14,#2E050B)">
+  <svg class="mandala" id="mandalaC" style="width:560px;height:560px;left:-220px;top:-120px;opacity:.14" viewBox="-200 -200 400 400" aria-hidden="true"></svg>
+  <div class="relative mx-auto max-w-5xl px-4 py-20">
+    <div class="reveal relative rounded-[1.75rem] p-1" style="background:linear-gradient(145deg,#E6CA65,rgba(212,175,55,.2) 40%,#D4AF37 70%,rgba(114,9,183,.5))">
+      <div class="rounded-[1.6rem] px-6 py-12 text-center sm:px-12" style="background:linear-gradient(180deg,#4A0811,#2E050B)">
+        <p class="inline-flex items-center gap-2 rounded-full border border-gold/60 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[.22em] text-gold-light">
+          <i data-lucide="sparkles" class="h-3.5 w-3.5"></i> Our signature
+        </p>
+        <h2 class="mx-auto mt-6 max-w-3xl font-playfair text-3xl font-semibold leading-tight sm:text-5xl">
+          Signature: <span class="gold-text italic">Portrait Mehndi</span> — Your Love Story, Drawn by Hand
+        </h2>
+        <p class="mx-auto mt-5 max-w-2xl text-ivory/80">Send us a photo of the bride &amp; groom and our certified fine artist recreates your portraits in henna on the bride's hands.</p>
+
+        <ol class="mx-auto mt-12 grid max-w-3xl gap-8 text-left md:grid-cols-3 md:text-center">
+          <li class="relative flex items-center gap-4 md:flex-col md:gap-3">
+            <span class="grid h-14 w-14 flex-none place-items-center rounded-full border border-gold/70 text-gold-light" style="background:rgba(255,253,249,.06)"><i data-lucide="camera"></i></span>
+            <span class="step-line"></span>
+            <span><b class="block font-cinzel text-xs tracking-[.2em] text-gold-light">STEP 1</b>Send your couple photo</span>
+          </li>
+          <li class="relative flex items-center gap-4 md:flex-col md:gap-3">
+            <span class="grid h-14 w-14 flex-none place-items-center rounded-full border border-gold/70 text-gold-light" style="background:rgba(255,253,249,.06)"><i data-lucide="pencil-line"></i></span>
+            <span class="step-line"></span>
+            <span><b class="block font-cinzel text-xs tracking-[.2em] text-gold-light">STEP 2</b>We sketch your portrait</span>
+          </li>
+          <li class="relative flex items-center gap-4 md:flex-col md:gap-3">
+            <span class="grid h-14 w-14 flex-none place-items-center rounded-full border border-gold/70 text-gold-light" style="background:rgba(255,253,249,.06)"><i data-lucide="heart-handshake"></i></span>
+            <span><b class="block font-cinzel text-xs tracking-[.2em] text-gold-light">STEP 3</b>Applied on the bridal hands</span>
+          </li>
+        </ol>
+
+        <div class="mt-12 flex flex-col items-center gap-6">
+          <div>
+            <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-gold-light">From</p>
+            <p class="font-cinzel text-5xl font-bold">₹16,999</p>
+          </div>
+          <button type="button" class="btn btn-gold" data-open-modal data-pkg="Portrait Mehndi (₹16,999)"><i data-lucide="message-circle"></i><span>Book Portrait Mehndi</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="bg-ivory">
+  <div class="reveal mx-auto max-w-3xl px-4 py-20 text-center">
+    <div class="orn"><i></i></div>
+    <h2 class="mt-6 font-playfair text-4xl font-semibold text-burgundy md:text-5xl">Is your wedding date still open?</h2>
+    <p class="mx-auto mt-4 max-w-xl text-[color:var(--muted)]">Tell us the date and city. We reply on WhatsApp with artist availability and your quote.</p>
+    <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <button type="button" class="btn btn-gold" data-open-modal><i data-lucide="calendar-check"></i><span>Check Date Availability</span></button>
+      <a class="btn btn-wa pulse-wa" href="https://wa.me/917077658447?text=Hi%20Henna%20Splash%2C%20I%20would%20like%20an%20instant%20quote." target="_blank" rel="noopener"><i data-lucide="message-circle"></i><span>WhatsApp Instant Quote</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contact" class="text-ivory" style="background:linear-gradient(180deg,#3A060D,#220408)">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-[1.2fr_1fr_1fr]">
+    <div>
+      <div class="flex items-center gap-3">
+        <span class="grid h-11 w-11 place-items-center rounded-full border border-gold/70 font-cinzel text-xl font-bold text-gold-light">H</span>
+        <div class="leading-tight">
+          <p class="font-cinzel text-lg font-semibold tracking-[.12em] text-gold-light">HENNA SPLASH</p>
+          <p class="text-[10px] font-semibold uppercase tracking-[.28em] text-ivory/70">&amp; Art Studio</p>
+        </div>
+      </div>
+      <p class="mt-5 max-w-sm text-sm text-ivory/70">Bangalore's premier team of professional female mehndi artists. Home-made, organic, chemical-free henna for your big day.</p>
+    </div>
+    <div>
+      <p class="font-cinzel text-sm font-bold tracking-[.2em] text-gold-light">EXPLORE</p>
+      <ul class="mt-4 space-y-2 text-sm text-ivory/80">
+        <li><a href="#why" class="hover:text-gold-light">Why Us</a></li>
+        <li><a href="#packages" class="hover:text-gold-light">Packages &amp; Pricing</a></li>
+        <li><a href="#signature" class="hover:text-gold-light">Portrait Mehndi</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-cinzel text-sm font-bold tracking-[.2em] text-gold-light">CONTACT</p>
+      <ul class="mt-4 space-y-3 text-sm text-ivory/85">
+        <li class="flex items-center gap-3"><i data-lucide="phone" class="h-4 w-4 text-gold-light"></i><a href="tel:+917077658447" class="select-all hover:text-gold-light">7077658447</a></li>
+        <li class="flex items-center gap-3"><i data-lucide="mail" class="h-4 w-4 text-gold-light"></i><a href="mailto:henasplash@gmail.com" class="select-all break-all hover:text-gold-light">henasplash@gmail.com</a></li>
+        <li class="flex items-center gap-3"><i data-lucide="globe" class="h-4 w-4 text-gold-light"></i><span class="select-all">www.hennasplash.com</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-gold/20 px-4 py-5 text-center text-xs text-ivory/50">© <span id="yr">2026</span> Henna Splash &amp; Art Studio. All rights reserved.</div>
+</footer>
+
+<!-- desktop WhatsApp -->
+<a class="fab pulse-wa" href="https://wa.me/917077658447?text=Hi%20Henna%20Splash%2C%20I%20would%20like%20an%20instant%20quote." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i data-lucide="message-circle"></i></a>
+
+<!-- mobile sticky bar -->
+<div class="mbar">
+  <a class="btn btn-outline" href="tel:+917077658447"><span class="flex items-center gap-2"><i data-lucide="phone"></i>Call Now</span><small>7077658447</small></a>
+  <a class="btn btn-wa pulse-wa" href="https://wa.me/917077658447?text=Hi%20Henna%20Splash%2C%20I%20would%20like%20an%20instant%20quote." target="_blank" rel="noopener"><span class="flex items-center gap-2"><i data-lucide="message-circle"></i>WhatsApp</span><small>Instant Quote</small></a>
+</div>
+
+<!-- ============ LEAD MODAL ============ -->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="sheet">
+    <div class="flex items-start justify-between gap-4 px-6 pt-6">
+      <div>
+        <p class="text-[11px] font-bold uppercase tracking-[.25em] text-gold-deep">Bridal booking</p>
+        <h2 id="mTitle" class="mt-1 font-playfair text-3xl font-semibold text-burgundy">Check Date Availability</h2>
+      </div>
+      <button type="button" id="mClose" class="grid h-11 w-11 flex-none place-items-center rounded-full border border-gold/60 text-burgundy" aria-label="Close"><i data-lucide="x" class="h-5 w-5"></i></button>
+    </div>
+
+    <form id="leadForm" class="grid gap-4 px-6 pb-7 pt-5" novalidate>
+      <div class="field" id="f-name"><label for="bride">Bride's Name</label><input id="bride" name="bride" type="text" autocomplete="name" placeholder="e.g. Ananya Rao" required><span class="err">Please enter the bride's name.</span></div>
+      <div class="field" id="f-date"><label for="edate">Event Date</label><input id="edate" name="edate" type="date" required><span class="err">Please choose the event date.</span></div>
+      <div class="field" id="f-city"><label for="city">Function City / Location</label><input id="city" name="city" type="text" autocomplete="address-level2" placeholder="e.g. Indiranagar, Bangalore" required><span class="err">Please enter the function location.</span></div>
+      <div class="field" id="f-pkg">
+        <label for="pkg">Selected Package</label>
+        <select id="pkg" name="pkg" required>
+          <option value="">Choose a package</option>
+          <option>Bridal Mehndi (₹6,999)</option>
+          <option>Floral Bridal (₹9,999)</option>
+          <option>Customized Bridal (₹11,999)</option>
+          <option>Premium Intricate (₹14,999)</option>
+          <option>Portrait Mehndi (₹16,999)</option>
+          <option>Side Members (₹499 – ₹1,499 per person)</option>
+        </select>
+        <span class="err">Please select a package.</span>
+      </div>
+      <div class="field" id="f-guests"><label for="guests">Guest Count (side members)</label><input id="guests" name="guests" type="number" inputmode="numeric" min="0" max="500" placeholder="e.g. 8" required><span class="err">Enter a number, or 0 if none.</span></div>
+      <button type="submit" class="btn btn-wa mt-1"><i data-lucide="message-circle"></i><span>Send on WhatsApp</span></button>
+      <p class="text-center text-xs text-[color:var(--muted)]">Opens WhatsApp with your details filled in, sent to 7077658447.</p>
+    </form>
+
+    <div id="sent" class="px-6 pb-8 pt-6 text-center" hidden>
+      <span class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br from-gold-light to-gold text-burgundy-deep"><i data-lucide="check"></i></span>
+      <h3 class="mt-4 font-playfair text-2xl font-semibold text-burgundy">Your message is ready</h3>
+      <p class="mx-auto mt-2 max-w-sm text-sm text-[color:var(--muted)]">If WhatsApp did not open, tap the button below to send your details to 7077658447.</p>
+      <a id="waLink" class="btn btn-wa mt-5" href="#" target="_blank" rel="noopener"><i data-lucide="message-circle"></i><span>Open WhatsApp</span></a>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<script>
+(function () {
+  var WA = '917077658447';
+  document.documentElement.classList.add('js');
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* henna mandala generator */
+  function mandala(id) {
+    var el = document.getElementById(id); if (!el) return;
+    var s = '<g fill="none" stroke="#E6CA65" stroke-width="0.8" stroke-linecap="round">';
+    [[190, 1], [176, 0.6], [120, 0.8], [64, 0.8]].forEach(function (c) { s += '<circle r="' + c[0] + '" opacity="' + c[1] + '"/>'; });
+    for (var i = 0; i < 24; i++) {
+      s += '<g transform="rotate(' + (i * 15) + ')">' +
+        '<path d="M0 -190 Q10 -165 0 -142 Q-10 -165 0 -190Z"/>' +
+        '<path d="M0 -176 L0 -120"/>' +
+        '<circle cx="0" cy="-130" r="3"/></g>';
+    }
+    for (var j = 0; j < 12; j++) {
+      s += '<g transform="rotate(' + (j * 30) + ')">' +
+        '<path d="M0 -120 Q22 -96 0 -66 Q-22 -96 0 -120Z"/>' +
+        '<path d="M0 -64 Q8 -44 0 -26 Q-8 -44 0 -64Z"/></g>';
+    }
+    s += '<circle r="12"/><circle r="5"/></g>';
+    el.innerHTML = s;
+  }
+  ['mandalaA', 'mandalaB', 'mandalaC'].forEach(mandala);
+
+  if (window.lucide) lucide.createIcons();
+
+  /* scroll reveal */
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    items.forEach(function (n) { io.observe(n); });
+    setTimeout(function () { items.forEach(function (n) { n.classList.add('in'); }); }, 6000);
+  } else { items.forEach(function (n) { n.classList.add('in'); }); }
+
+  /* modal */
+  var modal = document.getElementById('modal'), form = document.getElementById('leadForm'),
+      sent = document.getElementById('sent'), lastFocus = null;
+  var dateEl = document.getElementById('edate');
+  var t = new Date(); dateEl.min = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
+
+  function openModal(pkg) {
+    lastFocus = document.activeElement;
+    form.hidden = false; sent.hidden = true;
+    document.querySelectorAll('.field').forEach(function (f) { f.classList.remove('bad'); });
+    if (pkg) document.getElementById('pkg').value = pkg;
+    modal.hidden = false;
+    document.documentElement.style.overflow = 'hidden';
+    setTimeout(function () { document.getElementById('bride').focus(); }, 50);
+  }
+  function closeModal() {
+    modal.hidden = true;
+    document.documentElement.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.querySelectorAll('[data-open-modal]').forEach(function (b) {
+    b.addEventListener('click', function () { openModal(b.getAttribute('data-pkg')); });
+  });
+  document.getElementById('mClose').addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+
+  function fmtDate(v) {
+    var p = v.split('-'); if (p.length !== 3) return v;
+    return new Date(+p[0], +p[1] - 1, +p[2]).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ids = [['bride', 'f-name'], ['edate', 'f-date'], ['city', 'f-city'], ['pkg', 'f-pkg'], ['guests', 'f-guests']], ok = true;
+    ids.forEach(function (p) {
+      var v = document.getElementById(p[0]).value.trim();
+      var bad = !v; document.getElementById(p[1]).classList.toggle('bad', bad); if (bad) ok = false;
+    });
+    if (!ok) { form.querySelector('.bad input, .bad select').focus(); return; }
+    var msg = 'Hello Henna Splash & Art Studio,\nI would like to check bridal mehndi availability.\n\n' +
+      '*Bride:* ' + document.getElementById('bride').value.trim() + '\n' +
+      '*Event date:* ' + fmtDate(dateEl.value) + '\n' +
+      '*Function location:* ' + document.getElementById('city').value.trim() + '\n' +
+      '*Package:* ' + document.getElementById('pkg').value + '\n' +
+      '*Guests (side members):* ' + document.getElementById('guests').value.trim() + '\n\nPlease confirm availability and quote.';
+    var url = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
+    var link = document.getElementById('waLink'); link.href = url;
+    form.hidden = true; sent.hidden = false;
+    link.click();
+  });
+})();
+</script>
+
+</body>
+</html>
